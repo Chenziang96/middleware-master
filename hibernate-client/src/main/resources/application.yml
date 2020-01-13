@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: hibernate-client
+
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/middleware?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: xuhui950624
+    hikari: #Mysql的连接池
+      maximum-pool-size: 20
+      connection-timeout: 60000
+      #空闲的连接的生命时长毫秒
+      idle-timeout: 60000
+      max-lifetime: 60000
+      #验证连接有效性毫秒
+      validation-timeout: 3000
+      login-timeout: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9014
+eureka:
+  instance:
+    hostname: localhost
+logging:
+  file: "logs/hibernate-client.log"
